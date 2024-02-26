@@ -1,0 +1,4 @@
+# Ignore localy history
+.lh
+.history
+node_modules
