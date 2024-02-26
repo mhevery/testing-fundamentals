@@ -2,3 +2,4 @@
 .lh
 .history
 node_modules
+*.log

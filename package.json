@@ -1,5 +1,6 @@
 {
   "name": "my-qwik-basic-starter",
+  "version": "0.0.1",
   "description": "Demo App with Routing built-in (recommended)",
   "engines": {
     "node": ">=15.0.0"
@@ -25,7 +26,8 @@
     "start": "vite --open --mode ssr",
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "chromatic": "npx chromatic --project-token=chpt_b8b698293e3af28"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.4.5",

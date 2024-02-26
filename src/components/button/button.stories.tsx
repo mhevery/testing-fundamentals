@@ -21,7 +21,7 @@ export const Primary: Story = {
     ...actions,
     size: "medium",
   },
-  render: (props) => <Button {...props}>Some button</Button>,
+  render: (props) => <Button {...props}>Some button!</Button>,
 };
 
 export const Secondary: Story = {
@@ -29,5 +29,5 @@ export const Secondary: Story = {
     ...actions,
     size: "small",
   },
-  render: (props) => <Button {...props}>Some other button</Button>,
+  render: (props) => <Button {...props}>Some other button.</Button>,
 };
