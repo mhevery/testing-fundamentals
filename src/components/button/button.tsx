@@ -1,10 +1,18 @@
-import { component$, useStylesScoped$, Slot } from "@builder.io/qwik";
+import {
+  component$,
+  useStylesScoped$,
+  Slot,
+  PropFunction,
+  $,
+} from "@builder.io/qwik";
 
 export interface ButtonProps {
   size?: "small" | "medium" | "large";
+  onClick$?: PropFunction<(e: Event) => void>;
 }
-export const Button = component$<ButtonProps>(({ size = "medium" }) => {
-  useStylesScoped$(`
+export const Button = component$<ButtonProps>(
+  ({ size = "medium", onClick$ }) => {
+    useStylesScoped$(`
     .size-small {
       font-size: 10px;
     }
@@ -15,13 +23,15 @@ export const Button = component$<ButtonProps>(({ size = "medium" }) => {
       font-size: 18px;
     }
   `);
-  return (
-    <button
-      class={{
-        [`size-${size}`]: true,
-      }}
-    >
-      <Slot></Slot>
-    </button>
-  );
-});
+    return (
+      <button
+        class={{
+          [`size-${size}`]: true,
+        }}
+        onClick$={onClick$}
+      >
+        <Slot />
+      </button>
+    );
+  }
+);
