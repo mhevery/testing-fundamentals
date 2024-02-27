@@ -51,10 +51,15 @@
     "prettier": "^3.2.4",
     "storybook": "^7.4.6",
     "storybook-framework-qwik": "^0.2.4",
+    "ts-node": "^10.9.2",
     "typescript": "5.3.3",
     "undici": "*",
     "vite": "^5.0.12",
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^1.3.1"
+  },
+  "dependencies": {
+    "csv-reader": "^1.0.12",
+    "csv-writer": "^1.6.0"
   }
 }
