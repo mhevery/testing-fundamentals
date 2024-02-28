@@ -1,25 +1,16 @@
 #!/usr/bin/env node
 
-import { createReadStream } from "fs";
+import { createReadStream, writeFile } from "fs";
 import { dirname, join } from "path";
 import CsvReadableStream from "csv-reader";
-import { createObjectCsvWriter } from "csv-writer";
 
-const __dirname = dirname(new URL(import.meta.url).pathname);
-console.log(__dirname);
+const __workspace = dirname(dirname(new URL(import.meta.url).pathname));
+console.log(__workspace);
 
 let inputStream = createReadStream(
-  join(__dirname, "traffic-crashes-crashes-1.csv"),
+  join(__workspace, "dataset", "traffic-crashes-crashes-1.csv"),
   "utf8"
 );
-
-const csvWriter = createObjectCsvWriter({
-  path: join(__dirname, "location.csv"),
-  header: [
-    { id: "long", title: "LATITUDE" },
-    { id: "lat", title: "LONGITUDE" },
-  ],
-});
 
 let records = [];
 let LATITUDE = -1;
@@ -38,16 +29,19 @@ inputStream
       LATITUDE = row.indexOf("LATITUDE");
       LONGITUDE = row.indexOf("LONGITUDE");
     } else {
-      const newRow = { long: row[LONGITUDE], lat: row[LATITUDE] };
-      if (typeof newRow.long === "number" && typeof newRow.lat === "number") {
+      const newRow = { lng: row[LONGITUDE], lat: row[LATITUDE] };
+      if (typeof newRow.lng === "number" && typeof newRow.lat === "number") {
         records.push(newRow);
       }
     }
   })
   .on("end", function () {
-    csvWriter
-      .writeRecords(records) // returns a promise
-      .then(() => {
-        console.log("...Done");
-      });
+    writeFile(
+      join(__workspace, "src", "components", "dataset.json"),
+      JSON.stringify(records.splice(1000), null, 2),
+      (err) => {
+        if (err) throw err;
+        console.log("Data has been written to dataset.json");
+      }
+    );
   });
