@@ -24,3 +24,5 @@
   - Common function to render the component
   - Freedom to change input / output
   - Separate assertion from the test harness
+- UI unit tests
+  

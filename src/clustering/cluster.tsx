@@ -2,11 +2,14 @@ import { component$, useStyles$ } from "@builder.io/qwik";
 import { Clusters } from "./clustering";
 import STYLE from "./cluster.css?inline";
 
-export default component$<{
+export interface ClusterProps {
   dataset: Clusters;
   width: number;
   height: number;
-}>(({ dataset, width, height }) => {
+  size?: number;
+}
+
+export default component$<ClusterProps>(({ dataset, width, height, size }) => {
   useStyles$(STYLE);
   return (
     <div
@@ -14,6 +17,7 @@ export default component$<{
       style={{
         height: height + "px",
         width: width + "px",
+        "--size": (size || 1) + "px",
       }}
     >
       {dataset.clusters.map((cluster, i) =>
@@ -22,7 +26,7 @@ export default component$<{
             style={{
               left: computePos(dataset.lngMin, dataset.lngMax, loc.lng),
               top: computePos(-dataset.latMax, -dataset.latMin, -loc.lat),
-              borderColor: COLORS[i % COLORS.length],
+              "--color": COLORS[i % COLORS.length],
             }}
           />
         ))
@@ -38,13 +42,13 @@ function computePos(min: number, max: number, value: number): string {
 
 const COLORS = [
   "#CD5C5C",
-  "#FAF0E6",
   "#00FF7F",
   "#C71585",
   "#FF0000",
   "#9ACD32",
   "#A9A9A9",
   "#8B0000",
+  "#FAF0E6",
   "#FFA07A",
   "#F0FFF0",
   "#32CD32",

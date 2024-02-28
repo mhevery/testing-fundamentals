@@ -10,8 +10,8 @@
   background-color: white;
   width: 700px;
   height: 700px;
-  border-right: 5px solid white;
-  border-bottom: 5px solid white;
+  border-right: calc(2*var(--size)) solid white;
+  border-bottom: calc(2*var(--size)) solid white;
   margin: 10px;
 }
 
@@ -20,8 +20,8 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: #000;
+  background-color: var(--color);
   padding: 0;
   transition: all 0.3s ease;
-  border: 1px solid blue;
+  border: var(--size) solid var(--color);
 }

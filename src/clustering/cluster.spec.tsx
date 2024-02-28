@@ -1,7 +1,7 @@
 import { createDOM } from "@builder.io/qwik/testing";
 import { describe, expect, it } from "vitest";
 import Cluster from "./cluster";
-import { cluster } from "./clustering";
+import { Location, cluster } from "./clustering";
 
 describe("cluster-component", () => {
   it("should render a cluster of 4 points", async () => {
@@ -34,7 +34,7 @@ describe("cluster-component", () => {
     expect(group1[0].color).not.toEqual(group2[0].color);
   });
 
-  async function renderCluster(dataset: { lng: number; lat: number }[]) {
+  async function renderCluster(dataset: Location[]) {
     const { render, screen } = await createDOM();
     const clusters = cluster(dataset, 5, 1);
     await render(<Cluster dataset={clusters} height={123} width={234} />);
