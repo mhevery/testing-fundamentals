@@ -1,5 +1,5 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
+import { DocumentHead, routeLoader$ } from "@builder.io/qwik-city";
 import { maxValue, minValue, number, object, type Input } from "valibot";
 import Cluster from "~/clustering/cluster";
 import {
@@ -15,18 +15,28 @@ import {
   valiForm$,
 } from "@modular-forms/qwik";
 
+export const head: DocumentHead = {
+  title: "Chicago Traffic Accidents Clustering",
+  meta: [
+    {
+      name: "description",
+      content: "Chicago Traffic Accidents Clustering",
+    },
+  ],
+};
+
 const ClusterSchema = object({
   size: number([
     minValue(10, "Size must be at least 10"),
     maxValue(20000, "Size must be at most 20000"),
   ]),
   distance: number([
-    minValue(100, "Size must be at least 100"),
-    maxValue(15000, "Size must be at most 15000"),
+    minValue(100, "Distance must be at least 100"),
+    maxValue(15000, "Distance must be at most 15000"),
   ]),
   minClusterSize: number([
-    minValue(1, "Size must be at least 1"),
-    maxValue(100, "Size must be at most 100"),
+    minValue(1, "Minimum cluster size must be at least 1"),
+    maxValue(100, "Minimum cluster size must be at most 100"),
   ]),
 });
 
@@ -83,7 +93,9 @@ export default component$(() => {
             <div>
               <label>size:</label>
               <input {...props} type="number" value={field.value} />
-              {field.error && <div class="error">{field.error}</div>}
+              {field.error && (
+                <div class={["error", props.name]}>{field.error}</div>
+              )}
             </div>
           )}
         </Field>
@@ -92,7 +104,9 @@ export default component$(() => {
             <div>
               <label>distance:</label>
               <input {...props} type="number" value={field.value} />
-              {field.error && <div class="error">{field.error}</div>}
+              {field.error && (
+                <div class={["error", props.name]}>{field.error}</div>
+              )}
             </div>
           )}
         </Field>
@@ -101,7 +115,9 @@ export default component$(() => {
             <div>
               <label>min cluster size:</label>
               <input {...props} type="number" value={field.value} />
-              {field.error && <div class="error">{field.error}</div>}
+              {field.error && (
+                <div class={["error", props.name]}>{field.error}</div>
+              )}
             </div>
           )}
         </Field>
