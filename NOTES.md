@@ -1,5 +1,7 @@
 # NOTES
 
+- https://docs.google.com/presentation/d/1HPw1S5ngLS2Z2r5xe-4kBT7Epa1uXsOlcRQgK0MQFa4/
+
 ## Goals
 - Unit tests
   - mocking the input

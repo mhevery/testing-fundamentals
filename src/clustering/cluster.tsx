@@ -36,7 +36,6 @@ export default component$<ClusterProps>(({ dataset, width, height, size }) => {
 });
 
 function computePos(min: number, max: number, value: number): string {
-  // value = min;
   return Math.floor(10000 * ((value - min) / (max - min))) / 100 + "%";
 }
 

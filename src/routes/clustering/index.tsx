@@ -129,8 +129,15 @@ export default component$(() => {
       <p>
         <b>Clusters:</b>{" "}
         <span class="cluster-count">{clusters.value.clusters.length}</span>
+        {" [ "}
+        <a href="?size=20000&distance=200&minClusterSize=10">
+          Show Intersections
+        </a>
+        {" | "}
+        <a href="?size=50000&distance=100&minClusterSize=20">large set</a>
+        {" ] "}
       </p>
-      <Cluster dataset={clusters.value} width={900} height={900} />
+      <Cluster dataset={clusters.value} width={500} height={500} />
     </div>
   );
 });

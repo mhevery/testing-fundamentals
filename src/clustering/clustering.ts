@@ -1,4 +1,4 @@
-import { DBSCAN } from "density-clustering";
+import clusterAlgo from "density-clustering";
 import DATASET from "./dataset.json";
 import type { Location } from "./dataset.json";
 export type { Location } from "./dataset.json";
@@ -36,9 +36,12 @@ export function cluster(
   distance: number = NEIGHBORHOOD_RADIUS,
   minClusterSize: number = 10
 ): Clusters {
-  const dbscan = new DBSCAN();
+  const clusteringAlgorithm = new clusterAlgo.DBSCAN();
   const data = dataset.map(({ lat, lng }) => [lat, lng]);
-  const rawClusters = dbscan.run(data, distance, minClusterSize);
+  const start = performance.now();
+  const rawClusters = clusteringAlgorithm.run(data, distance, minClusterSize);
+  const end = performance.now();
+  console.log("cluster time", end - start);
   let latMin = Number.MAX_SAFE_INTEGER;
   let latMax = Number.MIN_SAFE_INTEGER;
   let lngMin = Number.MAX_SAFE_INTEGER;
