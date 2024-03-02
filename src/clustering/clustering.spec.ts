@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { bench, describe, expect, it } from "vitest";
 import { cluster, loadDataset } from "./clustering";
 
 describe("Clustering", () => {
@@ -43,5 +43,12 @@ describe("Clustering", () => {
         },
       ],
     });
+  });
+});
+
+describe("data fetching", () => {
+  it("should fetch data", async ({ expect, task }) => {
+    console.log(import.meta.vitest);
+    console.log(task);
   });
 });

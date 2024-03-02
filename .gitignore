@@ -1,6 +1,7 @@
 # Ignore localy history
 .lh
 .history
+.env.local
 node_modules
 *.log
 /test-results/

@@ -42,7 +42,17 @@ describe("cluster-component", () => {
     const points = (
       Array.from(chart.querySelectorAll("b")) as HTMLElement[]
     ).map((b) => {
-      const color = b.style.borderColor;
+      let color = b.style.getPropertyValue("--color");
+      if (!color) {
+        // Fallback to style variables which are not supported in JSDOM
+        const text =
+          (b.style as { _lastParsedText?: string })._lastParsedText || "";
+        color = text
+          .split(";")
+          .filter((s) => s.startsWith("--color"))
+          .map((s) => s.split(":")[1].trim())
+          .pop() as string;
+      }
       const left = parseInt(b.style.left);
       const top = 100 - parseInt(b.style.top);
       return { color, left, top };
