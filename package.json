@@ -38,7 +38,7 @@
     "@builder.io/qwik": "^1.4.5",
     "@builder.io/qwik-city": "^1.4.5",
     "@octokit/openapi-types": "^20.0.0",
-    "@playwright/test": "^1.41.2",
+    "@playwright/test": "^1.42.1",
     "@storybook/addon-essentials": "^7.4.6",
     "@storybook/addon-links": "^7.4.6",
     "@storybook/blocks": "^7.4.6",

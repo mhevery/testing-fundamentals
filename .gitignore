@@ -9,3 +9,7 @@ node_modules
 /blob-report/
 /playwright/.cache/
 /coverage/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
