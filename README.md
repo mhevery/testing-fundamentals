@@ -1,65 +1,30 @@
-# Qwik City App ⚡️
+This repo is a companion to the [Web App Testing course](https://frontendmasters.com/courses/web-app-testing/) on Frontend Masters.
 
-- [Qwik Docs](https://qwik.builder.io/)
-- [Discord](https://qwik.builder.io/chat)
-- [Qwik GitHub](https://github.com/BuilderIO/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+[![Frontend Masters](images/FrontendMastersLogo.png)](https://frontendmasters.com/courses/web-app-testing/)
 
----
+## Overview
 
-## Project Structure
+There are two applications in this codebase. The `main` branch shows the final solution with all tests added. The `no-tests` branch has a version of each application without and tests and is the started point for the course. Individual checkpoint branches have been added (e.g. `lesson-1`) and are refrenced throughout the course.
 
-This project is using Qwik with [QwikCity](https://qwik.builder.io/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+## Installation & Setup
 
-Inside your project, you'll see the following directory structure:
+To follow along with the course, clone the repository and checkout the `no-tests` branch. Then installed the dependencies with either Yarn or NPM and use `npm run dev` to start the server:
 
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
-
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.builder.io/qwikcity/routing/overview/) for more info.
-
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.builder.io/qwikcity/guides/static-site-generation/).
+> [!NOTE]
+> We recommend using Node version 20 for this course (version 20.11.1 was used during the recording)
 
 ```shell
-npm run qwik add # or `yarn qwik add`
+git clone https://frontendmasters.com/courses/web-app-testing/
+cd testing-fundamentals
+git checkout no-tests
+npm install # or yarn
+npm run dev
 ```
 
-## Development
+## Applications
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+After running the development server, you'll find the two applications here:
+- Repository Lookup: http://localhost:5137/github/
+- Clustering: http://localhost:5137/clustering/
 
-```shell
-npm start # or `yarn start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-npm run preview # or `yarn preview`
-```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-npm run build # or `yarn build`
-```
+With the Repository Lookup application, you'll need to append a username and a repo in the URL to get data. For example: http://localhost:5137/github/mhevery/qwik/
