@@ -20,11 +20,23 @@ git checkout no-tests
 npm install # or yarn
 npm run dev
 ```
-
 ## Applications
 
 After running the development server, you'll find the two applications here:
 - Repository Lookup: http://localhost:5137/github/
 - Clustering: http://localhost:5137/clustering/
 
-With the Repository Lookup application, you'll need to append a username and a repo in the URL to get data. For example: http://localhost:5137/github/mhevery/qwik/
+## Create a GitHub Personal Access Token
+
+One of the examples uses the GitHub API to access public repo names for a user. You'll need to create a Personal Access Token and add it to the `.env` file:
+
+1. Go to your [Settings -> Developer Settings -> Personal Access Tokens](https://github.com/settings/tokens)
+2. Use the menu to generate a "New Personal Access Token (classic)"
+3. Choose an expiration and give it Repo -> public_repo scope
+4. Click Generate Token at the bottom
+5. When the token is generated, copy/paste it into your `.env` file
+6. Restart your development server
+
+You should now be able to see repo information in the GitHub app: http://localhost:5173/github/mhevery/qwik/
+
+
