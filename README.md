@@ -1,6 +1,7 @@
+[![Frontend Masters](https://static.frontendmasters.com/assets/brand/logos/full.png)](https://frontendmasters.com/courses/web-app-testing/)
+
 This repo is a companion to the [Web App Testing course](https://frontendmasters.com/courses/web-app-testing/) on Frontend Masters.
 
-[![Frontend Masters](images/FrontendMastersLogo.png)](https://frontendmasters.com/courses/web-app-testing/)
 
 ## Overview
 
