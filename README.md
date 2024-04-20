@@ -15,9 +15,9 @@ To follow along with the course, clone the repository and checkout the `no-tests
 > We recommend using Node version 20 for this course (version 20.11.1 was used during the recording)
 
 ```shell
-git clone https://frontendmasters.com/courses/web-app-testing/
+git clone https://github.com/mhevery/testing-fundamentals 
 cd testing-fundamentals
-git checkout no-tests
+git checkout no-test
 npm install # or yarn
 npm run dev
 ```
